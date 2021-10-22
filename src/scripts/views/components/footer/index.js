@@ -4,6 +4,8 @@ class FooterElement extends HTMLElement {
   }
 
   render() {
+    this.classList.add('w-100');
+
     const footer = document.createElement('footer');
     this.appendChild(footer);
 

@@ -6,6 +6,26 @@ class RestaurantCards extends HTMLElement {
     this.render();
   }
 
+  setLoading() {
+    while (this.firstChild) {
+      this.removeChild(this.lastChild);
+    }
+
+    const div = document.createElement('feedback-element');
+    div.render('Loading');
+    this.appendChild(div);
+  }
+
+  setError(message = '') {
+    while (this.firstChild) {
+      this.removeChild(this.lastChild);
+    }
+
+    const div = document.createElement('feedback-element');
+    div.render(message);
+    this.appendChild(div);
+  }
+
   render() {
     while (this.firstChild) {
       this.removeChild(this.lastChild);

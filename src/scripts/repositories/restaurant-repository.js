@@ -23,23 +23,28 @@
  * Restaurant Menu type definition
  * @typedef {Object} Menu
  * @property {Food[]} foods
- * @property {Drink[]]} drinks
+ * @property {Drink[]} drinks
  *
  * Costumer Review type definition
- * @typedef {Object} CostumerReview
+ * @typedef {Object} CustomerReview
  * @property {string} name
  * @property {string} review
  * @property {string} date
+ *
+ * Restaurant Address type definition
+ * @typedef {Object} RestaurantAddress
+ * @property {string} address
  *
  * Restaurant Relation type definition
  * @typedef {Object} RestaurantRelation
  * @property {string} address
  * @property {Category[]} categories
  * @property {Menu} menus
- * @property {CostumerReview[]} costumerReviews
+ * @property {CustomerReview[]} customerReviews
  *
  * Restaurant Detail type definition
  * @typedef {Restaurant & RestaurantRelation} RestaurantDetail
+ *
  */
 
 const restaurantUrl = process.env.RESTAURANT_API;

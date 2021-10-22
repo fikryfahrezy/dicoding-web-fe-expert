@@ -16,12 +16,12 @@ const { parseActiveUrlWithCombiner } = urlParser();
  * @param {() => void} [init]
  */
 const app = function app(root, routes, init) {
-  // if (init) init();
+  if (init) init();
 
   /**
-   * @return {void}
+   * @return {Promise<void>}
    */
-  const renderPage = function renderPage() {
+  const renderPage = async function renderPage() {
     const url = parseActiveUrlWithCombiner();
     const page = routes[url];
 
@@ -29,7 +29,9 @@ const app = function app(root, routes, init) {
       root.removeChild(root.lastChild);
     }
 
-    root.appendChild(page.render());
+    const render = await page()();
+
+    root.appendChild(render);
   };
 
   return {

@@ -1,3 +1,5 @@
+const imageUrl = process.env.RESTAURANT_IMG_M;
+
 class RestaurantCard extends HTMLElement {
   set data(value) {
     this.value = value;
@@ -7,9 +9,13 @@ class RestaurantCard extends HTMLElement {
   render() {
     const { id, name, description, pictureId, city, rating } = this.value;
 
+    const anchor = document.createElement('a');
+    anchor.href = `#/detail/${id}`;
+    this.appendChild(anchor);
+
     const card = document.createElement('div');
     card.classList.add('card');
-    this.appendChild(card);
+    anchor.appendChild(card);
 
     const cardId = document.createElement('span');
     cardId.classList.add('card-id');
@@ -21,7 +27,7 @@ class RestaurantCard extends HTMLElement {
     cardImg.alt = 'Restaurant Picture';
     cardImg.width = '776';
     cardImg.height = '540';
-    cardImg.src = pictureId;
+    cardImg.src = `${imageUrl}/${pictureId}`;
     card.appendChild(cardImg);
 
     const cardDetail = document.createElement('div');

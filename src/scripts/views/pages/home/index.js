@@ -1,50 +1,47 @@
-import data from '../../../../DATA.json';
-import '../../components/stc';
-import '../../components/nav';
-import '../../components/jumbotron';
-import '../../components/restaurant-cards';
-import '../../components/newsletter-form';
-import '../../components/footer';
+import restaurantRepository from '../../../repositories/restaurant-repository';
 
-const Home = {
+const { restaurantList } = restaurantRepository;
+
+const home = function home() {
   /**
-   * @returns {HTMLDivElement}
+   * @returns {Promise<HTMLDivElement>}
    */
-  render() {
+  const render = async function render() {
     const container = document.createElement('div');
-    container.classList.add('container');
-
-    const stcNav = document.createElement('stc-nav');
-    container.appendChild(stcNav);
-
-    const navElement = document.createElement('nav-element');
-    container.appendChild(navElement);
+    container.classList.add('w-100');
 
     const jumbotron = document.createElement('jumbotron-element');
     container.appendChild(jumbotron);
 
-    const main = document.createElement('main');
-    main.classList.add('main');
-    main.id = 'main';
-    container.appendChild(main);
+    const mainContent = document.createElement('div');
+    mainContent.classList.add('bcp');
+    mainContent.id = 'main';
+    container.appendChild(mainContent);
 
     const subTitle = document.createElement('h2');
     subTitle.classList.add('s2-title');
     subTitle.textContent = 'Explore Restaurant';
-    main.appendChild(subTitle);
+    mainContent.appendChild(subTitle);
 
     const restaurantCards = document.createElement('restaurant-cards');
-    restaurantCards.data = data.restaurants;
-    main.appendChild(restaurantCards);
+    restaurantCards.setLoading();
+    mainContent.appendChild(restaurantCards);
 
     const newsletterForm = document.createElement('newsletter-form');
-    main.appendChild(newsletterForm);
+    mainContent.appendChild(newsletterForm);
 
-    const footerElement = document.createElement('footer-element');
-    container.appendChild(footerElement);
+    restaurantList()
+      .then((data) => {
+        restaurantCards.data = data;
+      })
+      .catch((e) => {
+        restaurantCards.setError(e.message);
+      });
 
     return container;
-  },
+  };
+
+  return render;
 };
 
-export default Home;
+export default home;

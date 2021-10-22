@@ -4,9 +4,8 @@ class NewsletterForm extends HTMLElement {
   }
 
   render() {
-    this.classList.add('newsletter');
-
     const newsLetter = document.createElement('section');
+    newsLetter.classList.add('newsletter');
     this.appendChild(newsLetter);
 
     const form = document.createElement('form');

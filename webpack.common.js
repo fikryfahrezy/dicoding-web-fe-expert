@@ -29,7 +29,7 @@ module.exports = {
     new webpack.EnvironmentPlugin({
       RESTAURANT_API: 'https://restaurant-api.dicoding.dev',
       RESTAURANT_IMG_S: 'https://restaurant-api.dicoding.dev/images/small',
-      RESTAURANT_IMG_B: 'https://restaurant-api.dicoding.dev/images/medium',
+      RESTAURANT_IMG_M: 'https://restaurant-api.dicoding.dev/images/medium',
       RESTAURANT_IMG_L: 'https://restaurant-api.dicoding.dev/images/large',
     }),
     new HtmlWebpackPlugin({

@@ -32,7 +32,7 @@ const urlParser = function urlParser() {
   };
 
   /**
-   * @return {string}
+   * @return {SplitedUrl}
    */
   const parseActiveUrlWithCombiner = function parseActiveUrlWithCombiner() {
     const url = window.location.hash.slice(1).toLowerCase();
@@ -43,7 +43,7 @@ const urlParser = function urlParser() {
   };
 
   /**
-   * @return {string}
+   * @return {SplitedUrl}
    */
   const parseActiveUrlWithoutCombiner = function parseActiveUrlWithoutCombiner() {
     const url = window.location.hash.slice(1).toLowerCase();
