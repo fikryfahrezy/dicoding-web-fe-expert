@@ -9,6 +9,7 @@ class NewsletterForm extends HTMLElement {
     this.appendChild(newsLetter);
 
     const form = document.createElement('form');
+    form.classList.add('newsletter-form');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
     });

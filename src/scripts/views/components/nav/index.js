@@ -1,5 +1,3 @@
-import './navlist';
-
 class NavElement extends HTMLElement {
   connectedCallback() {
     this.navs = [
@@ -39,15 +37,23 @@ class NavElement extends HTMLElement {
       ul.classList.toggle('nav-show');
     };
 
-    this.navs.forEach((val) => {
-      const navList = document.createElement('nav-list');
-      navList.addEventListener('click', () => {
-        toggleMenu();
-      });
+    this.navs.forEach(({ ref, name }) => {
+      const li = document.createElement('li');
+      li.classList.add('nav-item');
+      this.appendChild(li);
 
-      navList.data = val;
+      const a = document.createElement('a');
+      a.classList.add('nav-link');
+      a.textContent = name;
+      a.href = ref;
 
-      ul.appendChild(navList);
+      if (ref.startsWith('http')) {
+        a.target = '_blank';
+        a.rel = 'noreferrer';
+      }
+
+      li.appendChild(a);
+      ul.appendChild(li);
     });
 
     nav.appendChild(ul);
@@ -58,7 +64,7 @@ class NavElement extends HTMLElement {
     closeBtn.addEventListener('click', () => {
       toggleMenu();
     });
-    ul.appendChild(closeBtn);
+    nav.appendChild(closeBtn);
 
     const iconCross = document.createElement('i');
     iconCross.classList.add('fas', 'fa-times');

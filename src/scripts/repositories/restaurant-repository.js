@@ -45,6 +45,12 @@
  * Restaurant Detail type definition
  * @typedef {Restaurant & RestaurantRelation} RestaurantDetail
  *
+ * Restaurant Review type definition
+ * @typedef {Object} RestaurantReview
+ * @property {string} id
+ * @property {string} name
+ * @property {string} review
+ *
  */
 
 const restaurantUrl = process.env.RESTAURANT_API;
@@ -80,6 +86,24 @@ const restaurantRepository = {
     const responseJson = await response.json();
 
     return responseJson.restaurants;
+  },
+
+  /**
+   * @param {RestaurantReview} data
+   * @return {Promise<CustomerReview[]>}
+   */
+  async restaurantReview(data) {
+    const response = await fetch(`${restaurantUrl}/review`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': '12345',
+      },
+      body: JSON.stringify(data),
+    });
+    const responseJson = await response.json();
+
+    return responseJson.customerReviews;
   },
 };
 

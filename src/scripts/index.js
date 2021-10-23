@@ -20,6 +20,7 @@ import './views/components/restaurant-cards';
 import './views/components/newsletter-form';
 import './views/components/product-detail';
 import './views/components/product-menus';
+import './views/components/review-form';
 import './views/components/product-reviews';
 import './views/components/feedback';
 import './views/components/footer';
@@ -35,6 +36,6 @@ window.addEventListener('hashchange', () => {
 });
 
 window.addEventListener('load', () => {
-  renderPage();
   swRegister(swRuntime);
+  renderPage();
 });

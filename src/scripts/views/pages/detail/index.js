@@ -1,7 +1,7 @@
 import restaurantRepository from '../../../repositories/restaurant-repository';
 import urlParser from '../../../handler/url-parser';
 
-const { restaurantDetail } = restaurantRepository;
+const { restaurantDetail, restaurantReview } = restaurantRepository;
 const { parseActiveUrlWithoutCombiner } = urlParser();
 
 const detail = function detail() {
@@ -31,6 +31,13 @@ const detail = function detail() {
     const productDrink = document.createElement('product-menus');
     detailContainer.appendChild(productDrink);
 
+    const reviewFormTitle = document.createElement('h2');
+    reviewFormTitle.classList.add('detail-sub-title');
+    detailContainer.appendChild(reviewFormTitle);
+
+    const reviewForm = document.createElement('review-form');
+    detailContainer.appendChild(reviewForm);
+
     const reviewTitle = document.createElement('h2');
     reviewTitle.classList.add('detail-sub-title');
     detailContainer.appendChild(reviewTitle);
@@ -51,6 +58,13 @@ const detail = function detail() {
 
         drinkTitle.textContent = 'Drinks';
         productDrink.data = menus.drinks;
+
+        reviewFormTitle.textContent = 'Review';
+        reviewForm.submit = function cb(test) {
+          restaurantReview({ id: url.id, ...test }).then((res) => {
+            productReviews.data = res;
+          });
+        };
 
         reviewTitle.textContent = 'Reviews';
         productReviews.data = customerReviews;

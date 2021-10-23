@@ -7,6 +7,10 @@ class ProductReviews extends HTMLElement {
   }
 
   render() {
+    while (this.firstChild) {
+      this.removeChild(this.lastChild);
+    }
+
     const cards = document.createElement('section');
     cards.classList.add('product-reviews');
     this.appendChild(cards);

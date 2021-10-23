@@ -13,5 +13,5 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-  e.waitUntil(revalidateCache(e.request));
+  e.respondWith(revalidateCache(e.request));
 });

@@ -185,14 +185,14 @@ nav {
 
 .close-btn {
   position: fixed;
-  bottom: 100vh;
+  top: -10vh;
   left: 50%;
   transform: translateX(-50%);
-  transition: bottom 0.2s linear;
+  transition: top 0.2s linear;
 }
 
-.nav-list.nav-show > .close-btn {
-  bottom: 0;
+.nav-list.nav-show ~ .close-btn {
+  top: 90vh;
 }
 
 .close-btn,
@@ -366,7 +366,7 @@ nav {
   margin-bottom: var(--nh);
 }
 
-form {
+.newsletter-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -487,6 +487,35 @@ form {
 
 .product-reviews {
   margin-bottom: 50px;
+}
+
+.form-review {
+  display: flex;
+  margin-bottom: 50px;
+  flex-direction: column;
+}
+
+.review-label {
+  font-size: 24px;
+}
+
+.review-input {
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-btn {
+  color: var(--tcl);
+  padding: 10px;
+  background-color: var(--cp);
+  border-radius: 5px;
+  font-size: 28px;
 }
 
 .product-review {
