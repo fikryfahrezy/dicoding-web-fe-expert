@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js && npm run build-image",
-    "build": "webpack --config webpack.common.cjs && npm run build-image",
+    "build": "webpack --config webpack.common.js && npm run build-image",
     "build-image": "node sharp.js",
     "lint": "eslint ./src",
     "test": "karma start"
