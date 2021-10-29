@@ -11,6 +11,8 @@
  * Restaurants type definition
  * @typedef {Restaurant[]} Restaurants
  */
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import './views/components/stc';

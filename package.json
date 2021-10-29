@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "start-dev": "webpack-dev-server --config webpack.dev.js && npm run build-image",
+    "build": "webpack --config webpack.common.cjs && npm run build-image",
+    "build-image": "node sharp.js",
     "lint": "eslint ./src",
     "test": "karma start"
   },
@@ -30,6 +31,7 @@
     "karma-jasmine": "^3.3.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
+    "sharp": "^0.29.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
@@ -39,6 +41,7 @@
   },
   "dependencies": {
     "idb-keyval": "^6.0.3",
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.5",
     "serviceworker-webpack-plugin": "^1.0.1"
   }

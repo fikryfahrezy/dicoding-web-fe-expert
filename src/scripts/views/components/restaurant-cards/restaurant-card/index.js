@@ -23,11 +23,11 @@ class RestaurantCard extends HTMLElement {
     card.appendChild(cardId);
 
     const cardImg = document.createElement('img');
-    cardImg.classList.add('card-img');
+    cardImg.classList.add('lazyload', 'card-img');
     cardImg.alt = 'Restaurant Picture';
-    cardImg.width = '776';
-    cardImg.height = '540';
-    cardImg.src = `${imageUrl}/${pictureId}`;
+    cardImg.width = 776;
+    cardImg.height = 540;
+    cardImg.dataset.src = `${imageUrl}/${pictureId}`;
     card.appendChild(cardImg);
 
     const cardDetail = document.createElement('div');
