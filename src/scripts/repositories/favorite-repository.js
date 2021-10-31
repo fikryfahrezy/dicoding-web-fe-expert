@@ -26,6 +26,8 @@ const favoriteRepository = {
    * @return {Promise<void>}
    */
   async addRestaurant(data) {
+    if (!data || !data.id) return;
+
     await set(data.id, data);
   },
 

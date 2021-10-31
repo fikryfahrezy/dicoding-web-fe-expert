@@ -38,6 +38,9 @@ window.addEventListener('hashchange', () => {
 });
 
 window.addEventListener('load', () => {
-  swRegister(swRuntime);
+  if (process.env.NODE_ENV === 'production') {
+    swRegister(swRuntime);
+  }
+
   renderPage();
 });

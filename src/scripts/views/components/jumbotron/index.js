@@ -4,6 +4,8 @@ class Jumbotron extends HTMLElement {
   }
 
   render() {
+    const isDevelopment = process.env.NODE_ENV === 'development';
+
     const jumbotron = document.createElement('section');
     jumbotron.classList.add('jumbotron');
     this.appendChild(jumbotron);
@@ -13,25 +15,25 @@ class Jumbotron extends HTMLElement {
 
     const srcWpS = document.createElement('source');
     srcWpS.srcset = './images/heros/hero-image_2-small.webp';
-    srcWpS.media = '(max-width: 728px)';
-    picture.appendChild(srcWpS);
+    srcWpS.media = '(max-width: 768px)';
+    if (!isDevelopment) picture.appendChild(srcWpS);
 
     const srcWpL = document.createElement('source');
-    srcWpL.srcset = './images/heros/hero-image_2-large.webp';
+    srcWpL.srcset = './images/heros/hero-image_2.webp';
     picture.appendChild(srcWpL);
 
     const srcJpS = document.createElement('source');
     srcJpS.srcset = './images/heros/hero-image_2-small.jpg';
-    srcJpS.media = '(max-width: 728px)';
-    picture.appendChild(srcJpS);
+    srcJpS.media = '(max-width: 768px)';
+    if (!isDevelopment) picture.appendChild(srcJpS);
 
     const srcJpL = document.createElement('source');
-    srcJpL.srcset = './images/heros/hero-image_2-large.jpg';
+    srcJpL.srcset = './images/heros/hero-image_2.jpg';
     picture.appendChild(srcJpL);
 
     const img = document.createElement('img');
     img.classList.add('banner');
-    img.src = './images/heros/hero-image_2-large.jpg';
+    img.src = './images/heros/hero-image_2.jpg';
     img.alt = 'Restaurant Banner';
     img.width = 800;
     img.height = 533;

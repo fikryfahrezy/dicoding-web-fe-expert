@@ -4,10 +4,8 @@ const { addRestaurant, deleteRestaurant, getRestaurant } = favoriteRepository;
 const imageUrl = process.env.RESTAURANT_IMG_M;
 
 class ProductDetail extends HTMLElement {
-  set data(value = null) {
+  connectedCallback() {
     this.isFavorite = false;
-    this.value = value;
-    this.render();
   }
 
   setLoading() {
@@ -30,7 +28,9 @@ class ProductDetail extends HTMLElement {
     this.appendChild(div);
   }
 
-  async render() {
+  async render(value = null) {
+    this.value = value;
+
     if (!this.value) return;
 
     while (this.firstChild) {

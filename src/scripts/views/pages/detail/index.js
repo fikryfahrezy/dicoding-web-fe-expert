@@ -51,7 +51,7 @@ const detail = function detail() {
       .then((data) => {
         const { menus, customerReviews } = data;
 
-        foodDetail.data = data;
+        foodDetail.render(data);
 
         foodTitle.textContent = 'Foods';
         productFood.data = menus.foods;

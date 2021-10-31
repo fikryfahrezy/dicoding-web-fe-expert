@@ -12,11 +12,11 @@ class ProductMenu extends HTMLElement {
     this.appendChild(card);
 
     const image = document.createElement('img');
-    image.classList.add('lazyload', 'card-img');
+    image.classList.add('card-img');
     image.alt = 'Food Image';
     image.width = 348;
     image.height = 348;
-    image.dataset.src = './images/heros/hero-image_2-small.jpg';
+    image.src = './images/heros/hero-image_2.jpg';
     card.appendChild(image);
 
     const cardDetail = document.createElement('div');

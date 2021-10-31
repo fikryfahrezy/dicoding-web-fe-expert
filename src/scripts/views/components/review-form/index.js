@@ -37,7 +37,7 @@ class ReviewFrom extends HTMLElement {
 
     const reviewLbl = document.createElement('label');
     reviewLbl.classList.add('review-label');
-    reviewLbl.setAttribute('for', 'name');
+    reviewLbl.setAttribute('for', 'review');
     reviewLbl.textContent = 'Review';
     form.appendChild(reviewLbl);
 
