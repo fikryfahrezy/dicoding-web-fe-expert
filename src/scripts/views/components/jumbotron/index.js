@@ -4,8 +4,6 @@ class Jumbotron extends HTMLElement {
   }
 
   render() {
-    const isDevelopment = process.env.NODE_ENV === 'development';
-
     const jumbotron = document.createElement('section');
     jumbotron.classList.add('jumbotron');
     this.appendChild(jumbotron);
@@ -16,7 +14,7 @@ class Jumbotron extends HTMLElement {
     const srcWpS = document.createElement('source');
     srcWpS.srcset = './images/heros/hero-image_2-small.webp';
     srcWpS.media = '(max-width: 768px)';
-    if (!isDevelopment) picture.appendChild(srcWpS);
+    picture.appendChild(srcWpS);
 
     const srcWpL = document.createElement('source');
     srcWpL.srcset = './images/heros/hero-image_2.webp';
@@ -25,7 +23,7 @@ class Jumbotron extends HTMLElement {
     const srcJpS = document.createElement('source');
     srcJpS.srcset = './images/heros/hero-image_2-small.jpg';
     srcJpS.media = '(max-width: 768px)';
-    if (!isDevelopment) picture.appendChild(srcJpS);
+    picture.appendChild(srcJpS);
 
     const srcJpL = document.createElement('source');
     srcJpL.srcset = './images/heros/hero-image_2.jpg';

@@ -48,9 +48,7 @@ const cacheHelper = function cacheHelper(cacheName) {
    */
   const deleteOldCache = async function deleteOldCache() {
     const cacheNames = await caches.keys();
-    cacheNames
-      .filter((cName) => cName !== cacheName)
-      .map((cName) => caches.delete(cName));
+    cacheNames.filter((cName) => cName !== cacheName).map((cName) => caches.delete(cName));
   };
 
   /**

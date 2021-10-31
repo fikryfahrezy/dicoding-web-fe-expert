@@ -29,14 +29,6 @@ class NavElement extends HTMLElement {
 
     const ul = document.createElement('ul');
     ul.classList.add('nav-list');
-
-    /**
-     * @returns {void}
-     */
-    const toggleMenu = function toggleMenu() {
-      ul.classList.toggle('nav-show');
-    };
-
     this.navs.forEach(({ ref, name }) => {
       const li = document.createElement('li');
       li.classList.add('nav-item');
@@ -56,6 +48,24 @@ class NavElement extends HTMLElement {
       ul.appendChild(li);
     });
 
+    /**
+     * @returns {void}
+     */
+    const toggleMenu = function toggleMenu() {
+      ul.classList.toggle('nav-show');
+    };
+
+    const menuBtn = document.createElement('button');
+    menuBtn.classList.add('menu-btn');
+    menuBtn.setAttribute('aria-label', 'Menu Button');
+    menuBtn.addEventListener('click', () => {
+      toggleMenu();
+    });
+    nav.appendChild(menuBtn);
+
+    const iconBar = document.createElement('i');
+    iconBar.classList.add('fas', 'fa-bars');
+    menuBtn.appendChild(iconBar);
     nav.appendChild(ul);
 
     const closeBtn = document.createElement('button');
@@ -69,18 +79,6 @@ class NavElement extends HTMLElement {
     const iconCross = document.createElement('i');
     iconCross.classList.add('fas', 'fa-times');
     closeBtn.appendChild(iconCross);
-
-    const menuBtn = document.createElement('button');
-    menuBtn.classList.add('menu-btn');
-    menuBtn.setAttribute('aria-label', 'Menu Button');
-    menuBtn.addEventListener('click', () => {
-      toggleMenu();
-    });
-    nav.appendChild(menuBtn);
-
-    const iconBar = document.createElement('i');
-    iconBar.classList.add('fas', 'fa-bars');
-    menuBtn.appendChild(iconBar);
   }
 }
 

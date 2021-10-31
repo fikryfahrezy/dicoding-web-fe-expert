@@ -5,7 +5,7 @@ const path = require('path');
 const sharp = require('sharp');
 
 (async () => {
-  const imagePath = path.join(__dirname, 'dist', 'images', 'heros');
+  const imagePath = path.join(__dirname, 'src', 'public', 'images', 'heros');
   const files = await fs.readdir(imagePath);
 
   await Promise.all(
