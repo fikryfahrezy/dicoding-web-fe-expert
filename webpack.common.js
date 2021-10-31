@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ServiceWorkerWebpackPugin = require('serviceworker-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -26,6 +27,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new webpack.EnvironmentPlugin({
       RESTAURANT_API: 'https://restaurant-api.dicoding.dev',
       RESTAURANT_IMG_S: 'https://restaurant-api.dicoding.dev/images/small',
