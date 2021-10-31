@@ -25,9 +25,5 @@ const sharp = require('sharp');
       })
       .flat(),
   );
-
   await Promise.all(files.map((file) => fs.rm(path.join(imagePath, file))));
-
-  const test = await fs.readdir(imagePath);
-  console.log(test);
 })();
